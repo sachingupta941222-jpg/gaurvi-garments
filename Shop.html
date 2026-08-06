@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Gaurvi Garments</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Poppins,sans-serif;
+}
+
+html{
+scroll-behavior:smooth;
+}
+
+body{
+background:#f7f7f7;
+color:#333;
+}
+
+header{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+background:white;
+box-shadow:0 3px 10px rgba(0,0,0,.1);
+padding:15px 8%;
+display:flex;
+justify-content:space-between;
+align-items:center;
+z-index:1000;
+}
+
+header h2{
+color:#d81b60;
+}
+
+header a{
+text-decoration:none;
+background:#d81b60;
+color:#fff;
+padding:10px 20px;
+border-radius:30px;
+}
+
+.hero{
+margin-top:75px;
+height:90vh;
+background:url("https://i.ibb.co/S7y5xDNQ/images-4.jpg") center/cover;
+display:flex;
+justify-content:center;
+align-items:center;
+text-align:center;
+}
+
+.overlay{
+background:rgba(0,0,0,.55);
+width:100%;
+height:100%;
+display:flex;
+justify-content:center;
+align-items:center;
+flex-direction:column;
+color:white;
+padding:20px;
+}
+
+.overlay h1{
+font-size:50px;
+margin-bottom:15px;
+}
+
+.overlay p{
+font-size:22px;
+margin-bottom:30px;
+}
+
+.shop-btn{
+padding:15px 35px;
+background:#ff4081;
+border:none;
+color:white;
+font-size:18px;
+border-radius:40px;
+cursor:pointer;
+text-decoration:none;
+}
+
+section{
+padding:60px 8%;
+}
+
+.title{
+text-align:center;
+font-size:35px;
+margin-bottom:40px;
+color:#d81b60;
+}
+
+.carousel{
+display:flex;
+overflow-x:auto;
+gap:20px;
+scroll-behavior:smooth;
+}
+
+.carousel::-webkit-scrollbar{
+display:none;
+}
+
+.card{
+background:white;
+min-width:280px;
+border-radius:15px;
+box-shadow:0 5px 15px rgba(0,0,0,.1);
+padding:15px;
+text-align:center;
+}
+
+.card img{
+width:100%;
+height:280px;
+object-fit:cover;
+border-radius:10px;
+}
+
+.card h3{
+margin:15px 0;
+}
+
+.card button{
+background:#d81b60;
+color:white;
+border:none;
+padding:12px 25px;
+border-radius:25px;
+cursor:pointer;
+}
+
+.cart{
+background:white;
+padding:25px;
+border-radius:15px;
+box-shadow:0 5px 15px rgba(0,0,0,.1);
+margin-top:30px;
+}
+
+.cart ul{
+margin:15px 0;
+}
+
+form{
+display:grid;
+gap:15px;
+margin-top:20px;
+}
+
+input{
+padding:14px;
+border:1px solid #ccc;
+border-radius:10px;
+font-size:16px;
+}
+
+.sendBtn{
+padding:15px;
+background:#4CAF50;
+color:white;
+border:none;
+border-radius:10px;
+font-size:17px;
+cursor:pointer;
+}
+
+footer{
+background:#222;
+color:white;
+padding:30px;
+text-align:center;
+margin-top:60px;
+}
+
+@media(max-width:768px){
+
+.overlay h1{
+font-size:36px;
+}
+
+.overlay p{
+font-size:18px;
+}
+
+}
+
+</style>
+
+</head>
+<body>
+
+<header>
+
+<h2>Gaurvi Garments</h2>
+
+<a href="#products">Shop</a>
+
+</header>
+
+<section class="hero">
+
+<div class="overlay">
+
+<h1>Welcome to Gaurvi Garments</h1>
+
+<p>Fresh Finds • Best Price</p>
+
+<a href="#products" class="shop-btn">
+Shop Now
+</a>
+
+</div>
+
+</section>
+
+<section id="products">
+
+<h2 class="title">Our Collection</h2>
+
+<div class="carousel" id="carousel">
+
+<div class="card">
+
+<img src="https://i.ibb.co/tPL7Nrsk/images-3.jpg">
+
+<h3>Fashion Wear 1</h3>
+
+<button onclick="addCart('Fashion Wear 1')">
+Add to Cart
+</button>
+
+</div>
+
+<div class="card">
+
+<img src="https://i.ibb.co/XZHB1h03/images-2.jpg">
+
+<h3>Fashion Wear 2</h3>
+
+<button onclick="addCart('Fashion Wear 2')">
+Add to Cart
+</button>
+
+</div>
+
+<div class="card">
+
+<img src="https://i.ibb.co/21f4291g/images-1.jpg">
+
+<h3>Fashion Wear 3</h3>
+
+<button onclick="addCart('Fashion Wear 3')">
+Add to Cart
+</button>
+
+</div>
+
+</div>
+
+<div class="cart">
+
+<h2>Your Cart</h2>
+
+<ul id="cartList"></ul>
+
+<form id="orderForm">
+
+<input
+type="text"
+id="name"
+placeholder="Customer Name"
+required>
+
+<input
+type="tel"
+id="phone"
+placeholder="Phone Number"
+required>
+
+<button class="sendBtn">
+Send Order
+</button>
+
+</form>
+
+</div>
+
+</section>
+
+<footer>
+
+<h3>Gaurvi Garments</h3>
+
+<p>Fresh Finds • Best Price</p>
+
+<p>Email :
+sachingupta941222@gmail.com</p>
+
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+
+<script>
+
+emailjs.init("Zu_8jAkIcBZuaNJOd");
+
+let cart=[];
+
+function addCart(item){
+
+cart.push(item);
+
+displayCart();
+
+}
+
+function displayCart(){
+
+let list=document.getElementById("cartList");
+
+list.innerHTML="";
+
+cart.forEach((item)=>{
+
+list.innerHTML+=`<li>${item}</li>`;
+
+});
+
+}
+
+document.getElementById("orderForm").addEventListener("submit",function(e){
+
+e.preventDefault();
+
+if(cart.length==0){
+
+alert("Cart is Empty");
+
+return;
+
+}
+
+let params={
+
+customer_name:document.getElementById("name").value,
+
+phone:document.getElementById("phone").value,
+
+items:cart.join(", "),
+
+owner_email:"sachingupta941222@gmail.com"
+
+};
+
+emailjs.send(
+
+"service_oyyqz14",
+
+"template_wrhmd1e",
+
+params
+
+)
+
+.then(()=>{
+
+alert("Order Sent Successfully");
+
+cart=[];
+
+displayCart();
+
+this.reset();
+
+})
+
+.catch(()=>{
+
+alert("Failed to Send");
+
+});
+
+});
+
+
+// Auto Slide
+
+const slider=document.getElementById("carousel");
+
+setInterval(()=>{
+
+slider.scrollBy({
+
+left:300,
+
+behavior:"smooth"
+
+});
+
+if(slider.scrollLeft+slider.clientWidth>=slider.scrollWidth){
+
+slider.scrollTo({
+
+left:0,
+
+behavior:"smooth"
+
+});
+
+}
+
+},3000);
+
+</script>
+
+</body>
+</html>
